@@ -5,6 +5,7 @@ channels:
 dependencies:
   - altair
   - flask
+  - flask-sqlalchemy
   - nodejs
   - openssl
   - pandas

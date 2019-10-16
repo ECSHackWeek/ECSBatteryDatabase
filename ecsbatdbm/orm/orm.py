@@ -224,3 +224,10 @@ class Cycling(Base):
     created_date = Column(DateTime, nullable=False)
     raw_data__filename = Column(String(32))
     cycler_instrument_id = Column(Integer, ForeignKey('cycler_instrument.id'), nullable=False)
+
+
+def create_sqlite3(db_out_filename):
+    db = create_engine('sqlite:///' + db_out_filename)
+    con = db.connect()
+    Base.metadata.create_all(db)
+    con.close()

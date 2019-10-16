@@ -258,7 +258,6 @@ class Cycling(Base):
 
 def create_sqlite3(db_out_filename):
     url = 'sqlite:///' + db_out_filename
-    print(url)
     db = create_engine(url)
     con = db.connect()
     Base.metadata.create_all(db)

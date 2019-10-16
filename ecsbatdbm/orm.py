@@ -1,5 +1,5 @@
 from sqlalchemy import Column, ForeignKey, Float, \
-    Integer, String, UnicodeText, DateTime
+    Integer, String, UnicodeText, DateTime, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
@@ -227,7 +227,9 @@ class Cycling(Base):
 
 
 def create_sqlite3(db_out_filename):
-    db = create_engine('sqlite:///' + db_out_filename)
+    url = 'sqlite:///' + db_out_filename
+    print(url)
+    db = create_engine(url)
     con = db.connect()
     Base.metadata.create_all(db)
     con.close()

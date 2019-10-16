@@ -1,0 +1,34 @@
+language: python
+python:
+  - "3.7"
+
+# install miniconda3
+install:
+  - sudo apt-get update
+  - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+  - bash miniconda.sh -b -p $HOME/miniconda
+  - source "$HOME/miniconda/etc/profile.d/conda.sh"
+  - hash -r
+  - conda config --set always_yes yes --set changeps1 no
+  - conda install -c anaconda setuptools
+  - conda update -q conda
+  # Useful for debugging any issues with conda
+  - conda info -a
+
+  # Replace dep1 dep2 ... with your dependencies
+  - conda env create -f environment.yml
+  - conda activate ecsbatdbm
+  #- python setup.py install
+
+# a list of commands to run before the main script
+before_script:
+    - flake8 ecsbatdbm
+
+# the actual commands to run
+script:
+    - coverage run -m unittest discover
+
+# generate a coverage report to send to back to user
+after_success:
+    - coverage report
+    - coveralls

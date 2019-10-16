@@ -115,14 +115,12 @@ class Electrolyte(Base):
     __tablename__ = 'electrolyte'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    cell_id = Column(Integer, ForeignKey('cell.id'), nullable=False)
-    electrolyte_id = Column(Integer,
+    name = Column(UnicodeText, nullable=False)
+    electrolyte_concentration_id = Column(Integer,
                             ForeignKey('electrolyte_concentration.id'),
                             nullable=False)
 
-    cell = relationship("Cell", foreign_keys=[cell_id])
-    electrolyte = relationship("ElectroltyeConcentration",
-                               foreign_keys=[electrolyte_id])
+    electrolyte_concentration = relationship("ElectroltyeConcentration", foreign_keys=[electrolyte_concentration_id])
 
 
 class ElectrodeComponent(Base):

@@ -277,3 +277,10 @@ def create_sqlite3(db_out_filename):
     con = db.connect()
     Base.metadata.create_all(db)
     con.close()
+
+
+def open_sqlite3(db_filename):
+    url = 'sqlite:///' + db_filename
+    db = create_engine(url)
+    con = db.connect()
+    return con

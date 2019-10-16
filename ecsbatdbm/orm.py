@@ -1,5 +1,5 @@
 from sqlalchemy import Column, ForeignKey, Float, \
-    Integer, String, UnicodeText, DateTime, create_engine, metadata
+    Integer, String, UnicodeText, DateTime, create_engine, MetaData
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 

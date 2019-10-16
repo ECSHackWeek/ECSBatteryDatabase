@@ -18,7 +18,7 @@ install:
   # Replace dep1 dep2 ... with your dependencies
   - conda env create -f environment.yml
   - conda activate ecsbatdbm
-  - python setup.py install
+  #- python setup.py install
 
 # a list of commands to run before the main script
 before_script:

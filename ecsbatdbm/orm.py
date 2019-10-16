@@ -1,11 +1,11 @@
 from sqlalchemy import Column, ForeignKey, Float, \
-    Integer, String, UnicodeText, DateTime, create_engine
+    Integer, String, UnicodeText, DateTime, create_engine, metadata
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
 
 Base = declarative_base()
-
+metadata = MetaData()
 
 class Project(Base):
     __tablename__ = 'project'
@@ -255,6 +255,18 @@ class Cycling(Base):
             Integer,
             ForeignKey('cycler_instrument.id'), nullable=False)
 
+
+def create_cycling_data_table(data_table_name):
+    table = Table(
+        data_table_name, metadata,
+        Column('date_time', DateTime, nullable=False),
+        Column('test_time', Float, nullable=False),
+        Column('step_time', Float, nullable=False),
+        Column('step_index', Integer, nullable=False),
+        Column('cycle_index', Integer, nullable=False),
+        Column('current_A', Float, nullable=False),
+        Column('voltage_V', Float, nullable=False)
+        )
 
 def create_sqlite3(db_out_filename):
     url = 'sqlite:///' + db_out_filename

@@ -25,7 +25,8 @@ CLASSIFIERS = ["Development Status :: 3 - Alpha",
                "Topic :: Scientific/Engineering"]
 
 # Description should be a one-liner:
-description = "ecsbatdbm: a relational data model, API and toolchain for battery related experimental data"
+description = "ecsbatdbm: a relational data model, API" \
+              "and toolchain for battery related experimental data"
 # Long description will go up on the pypi page
 long_description = """
 ECSBatDBM

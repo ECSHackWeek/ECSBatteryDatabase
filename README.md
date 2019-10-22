@@ -11,4 +11,9 @@ prototype implementation was first developed at ECS Data Science Sprint at
 the ECS 236th Meeting in Atlanta.
 
 ## frontend
-Matt David Murbach, put something here!
+The frontend aims to provide a web interface to the database. It consists of a
+minimal flask server and a React interface. Initial prototypes will focus on
+adding metadata options (electrolytes/electrodes/separators) and uploading data.
+Additional features for viewing data, searching by metadata, etc. will follow.
+Instructions on how to install and run the frontend can be found in
+frontend/README.md.

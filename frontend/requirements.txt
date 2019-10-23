@@ -1,0 +1,6 @@
+altair
+Flask
+Flask-Migrate
+Flask-SQLAlchemy
+numpy
+pandas
